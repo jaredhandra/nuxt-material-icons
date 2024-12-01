@@ -1,5 +1,5 @@
 // @ts-check
-import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
+import {createConfigForNuxt} from '@nuxt/eslint-config/flat'
 
 // Run `npx @eslint/config-inspector` to inspect the resolved config interactively
 export default createConfigForNuxt({
@@ -7,7 +7,11 @@ export default createConfigForNuxt({
     // Rules for module authors
     tooling: true,
     // Rules for formatting
-    stylistic: true,
+    stylistic: {
+      semi: false,
+      indent: "tab",
+      quotes: "double"
+    }
   },
   dirs: {
     src: [
