@@ -1,3 +1,3 @@
-import * as IconString from 'material-icons'
+import type * as IconString from "material-icons"
 
 export type MIconString = typeof IconString

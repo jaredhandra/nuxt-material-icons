@@ -1,8 +1,9 @@
 <template>
-  <div>
-    Nuxt module playground!
-    <MIcon :icon="pie_chart"></MIcon>
-  </div>
+	<div>
+		Nuxt module playground!
+
+		<MIcon icon="pie_chart" />
+	</div>
 </template>
 
 <script setup>
