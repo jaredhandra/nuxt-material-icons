@@ -1,15 +1,22 @@
 <template>
-	<span class="material-icons">{{ props.icon }}</span>
+	<span :class="variantClass">{{ props.icon }}</span>
 </template>
 
 <script setup lang="ts">
 import "material-icons/iconfont/material-icons.css"
-import type { MIconString } from "./MIcon"
+import type { MIconString, MIconVariant } from "./MIcon"
 
-export interface MIconProps {
-	variant?: string
-	icon: MIconString
-}
-
-const props = defineProps<MIconProps>()
+const props = defineProps({
+	icon: {
+		type: String as PropType<MIconString>,
+		required: true,
+	},
+	variant: {
+		type: String as PropType<MIconVariant>,
+		default: "",
+	},
+})
+const variantClass = computed(() => {
+	return props.variant ? "material-icons" + "-" + `${props.variant}` : "material-icons"
+})
 </script>
