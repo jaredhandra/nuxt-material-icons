@@ -18,7 +18,7 @@ This module wraps the [material-icons package by marella](https://www.npmjs.com/
 to ease the integration with Google's Material Icons & Symbols with your Nuxt project.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-- [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-material-icons?file=playground%2Fapp.vue)
+- [🏀 Online playground](https://stackblitz.com/~/github.com/jaredhandra/nuxt-material-icons?file=playground/app.vue)
 - [📖 &nbsp;Documentation](https://example.com)
 
 ## Features
