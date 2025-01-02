@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPlugin, createResolver, addComponent } from "@nuxt/kit"
+import { defineNuxtModule, createResolver, addComponent } from "@nuxt/kit"
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -22,8 +22,6 @@ export default defineNuxtModule<ModuleOptions>({
 	},
 	setup(_options, _nuxt) {
 		const resolver = createResolver(import.meta.url)
-		// Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-		addPlugin(resolver.resolve("./runtime/plugin"))
 		addComponent({
 			name: _options.componentName,
 			filePath: resolver.resolve("runtime/components/MIcon.vue"),
