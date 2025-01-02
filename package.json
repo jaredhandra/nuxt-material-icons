@@ -1,7 +1,7 @@
 {
   "name": "nuxt-material-icons",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
+  "description": "Easily add Google's Material Symbols & Icons to your Nuxt 3 project",
   "repository": "jaredhandra/nuxt-material-icons",
   "license": "MIT",
   "type": "module",
