@@ -1,27 +1,6 @@
 <template>
-	<!--	<div class="container"> -->
-	<!--		<div class="card"> -->
-	<!--			<div class="options"> -->
-	<!--				<div> -->
-	<!--					<USelect -->
-	<!--						v-model="selectedVariant" -->
-	<!--						:options="variants" -->
-	<!--					/> -->
-	<!--				</div> -->
-	<!--			</div> -->
-	<!--			<div class="icon-view"> -->
-	<!--				<MIcon -->
-	<!--					:variant="selectedVariant" -->
-	<!--					icon="pie_chart" -->
-	<!--				/> -->
-	<!--			</div> -->
-	<!--			<div class="output"> -->
-	<!--				<pre><code>{{ options }}</code></pre> -->
-	<!--			</div> -->
-	<!--		</div> -->
-	<!--	</div> -->
 	<UContainer class="h-32">
-		<UCard>
+		<UCard style="background: #4B4D60">
 			<div class="h-32 flex flex-row space-x-20">
 				<div class="basis-1/2">
 					Style Variant:
@@ -32,78 +11,47 @@
 					/>
 				</div>
 				<div class="basis-1/2">
-					Material Icon Selection:
-					<USelect
-						v-model="selectedVariant"
-						:options="variants"
-						placeholder="Material Icon Style Variant"
-					/>
+					Icon:
+					<UInput v-model="selectedIcon" />
+					<ULink
+						to="https://marella.github.io/material-icons/demo/"
+						target="_blank"
+						active-class="text-primary"
+						inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+					>
+						All available icons can be found here
+					</ULink>
 				</div>
 			</div>
 			<div class="flex justify-center">
-				<div class="">
-					<MIcon
-						:variant="selectedVariant"
-						icon="pie_chart"
-						style="font-size: 72px"
-					/>
-				</div>
+				<MIcon
+					:variant="selectedVariant"
+					:icon="selectedIcon"
+					style="font-size: 72px"
+				/>
 			</div>
-
-			<template #footer>
-				<div class="h-8">
-					<pre><code>{{ options }}</code></pre>
-				</div>
-			</template>
 		</UCard>
 	</UContainer>
 </template>
 
-<script setup>
-import { useRuntimeConfig } from "#app"
+<script setup lang="ts">
+import type { MIconVariant } from "../src/runtime/components/MIcon"
 
-const options = useRuntimeConfig().public.mi
 const variants = ref([
 	{ value: "", label: "Default" },
 	{ value: "outlined", label: "Outlined" },
 	{ value: "round", label: "Round" },
 	{ value: "sharp", label: "Sharp" },
 	{ value: "two-tone", label: "Two Tone" }])
-const selectedVariant = ref(null)
+const selectedVariant = ref<MIconVariant>("")
+const selectedIcon = ref("pie_chart")
 </script>
 
 <style>
 body {
   margin: 80px;
-  background: #2A3D45;
+  background: #2c2e40;
   font-family: Helvetica, Arial, sans-serif;
   color: white;
-}
-
-.container {
-  overflow: hidden;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100%;
-  width: 100%;
-}
-
-.card {
-  margin: 80px auto;
-  padding: 20px;
-  background: #A39A92;
-  border: 1px solid #4B4D60;
-  border-radius: 0.5em;
-  width: auto;
-  height: auto;
-}
-
-.options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 </style>

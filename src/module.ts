@@ -13,7 +13,6 @@ export default defineNuxtModule<ModuleOptions>({
 		configKey: "mi",
 		compatibility: {
 			nuxt: ">=3.0.0",
-
 		},
 	},
 
@@ -23,7 +22,6 @@ export default defineNuxtModule<ModuleOptions>({
 	},
 	setup(_options, _nuxt) {
 		const resolver = createResolver(import.meta.url)
-
 		// Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
 		addPlugin(resolver.resolve("./runtime/plugin"))
 		addComponent({
